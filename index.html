@@ -73,13 +73,12 @@
     }
 
     .qr-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
-  }
-
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+    }
 
     .section-content {
       width: 100%;
@@ -117,7 +116,6 @@
       display: none;
     }
 
-    /* Footer Image Styling */
     .footer-img {
       position: absolute;
       bottom: 10px;
@@ -133,15 +131,80 @@
       opacity: 0.8;
     }
 
+    /* Sidenav styles */
+    .sidenav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      background-color: #1c1c1c;
+      overflow-x: hidden;
+      transition: 0.3s;
+      padding-top: 60px;
+    }
+
+    .sidenav a {
+      padding: 14px 28px;
+      text-decoration: none;
+      font-size: 18px;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .sidenav a i {
+      margin-right: 12px;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .open-nav {
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    @media (max-width: 600px) {
+      .sidenav a {
+        font-size: 16px;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Sidenav -->
+  <div id="mySidenav" class="sidenav">
+    <span class="closebtn" onclick="closeNav()">×</span>
+    <a href="#"><i>🏠</i>Home</a>
+    <a href="#"><i>🚌</i>Apply Bus Pass</a>
+    <a href="#"><i>📅</i>Request Status</a>
+    <a href="#"><i>👤</i>Back to Home Page</a>
+    <a href="#"><i>⚙️</i>Logout</a>
+  </div>
+
+  <!-- Header -->
   <div class="header">
-    <div style="font-size: 24px; margin-left: 10px;">☰</div>
+    <div class="open-nav" onclick="openNav()">☰</div>
     <div class="title">Digital Bus Pass</div>
     <div style="font-size: 24px; margin-right: 10px;">🔔</div>
   </div>
 
+  <!-- Bus Info -->
   <div class="bus-info">
     <div class="station-name">Thane Stn. E Kopari</div>
     <div class="arrow">⇌</div>
@@ -154,7 +217,7 @@
     <img src="QR.png" alt="QR Code Placeholder" />
   </div>
 
-  <!-- Details Section (same size as QR section) -->
+  <!-- Details Section -->
   <div id="detailsSection" class="fixed-box">
     <div class="section-content">
       <div class="section-row">
@@ -196,13 +259,15 @@
     </div>
   </div>
 
+  <!-- Toggle Button -->
   <div class="button" onclick="toggleView()" id="toggleBtn">View Details</div>
 
-  <!-- Footer image here -->
+  <!-- Footer -->
   <div class="footer-img">
     <img src="tcsw.png" alt="TCS Footer Logo">
   </div>
 
+  <!-- JS -->
   <script>
     function toggleView() {
       const qr = document.getElementById("qrSection");
@@ -218,6 +283,14 @@
         details.style.display = "flex";
         btn.innerText = "View QR";
       }
+    }
+
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0";
     }
   </script>
 </body>

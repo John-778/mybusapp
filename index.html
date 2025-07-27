@@ -189,13 +189,16 @@
 <body>
   <!-- Sidenav -->
   <div id="mySidenav" class="sidenav">
-    <span class="closebtn" onclick="closeNav()">×</span>
-    <a href="#"><i>🏠</i>Home</a>
-    <a href="#"><i>🚌</i>Apply Bus Pass</a>
-    <a href="#"><i>📅</i>Request Status</a>
-    <a href="#"><i>👤</i>Back to Home Page</a>
-    <a href="#"><i>⚙️</i>Logout</a>
-  </div>
+  <span class="closebtn" onclick="closeNav()">×</span>
+  <a href="#"><span class="icon">🏠&nbsp;&nbsp;</span>Home</a>
+  <a href="#"><span class="icon">🚍&nbsp;&nbsp;</span>Apply Bus Pass</a>
+  <a href="#"><span class="icon">📝&nbsp;&nbsp;</span>Request Status</a>
+  <a href="#"><span class="icon">⚙️&nbsp;&nbsp;</span>Back to Home Page</a>
+  <a href="#"><span class="icon">🔓&nbsp;&nbsp;</span>Logout</a>
+</div>
+
+
+
 
   <!-- Header -->
   <div class="header">
@@ -286,7 +289,7 @@
     }
 
     function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("mySidenav").style.width = "300px";
     }
 
     function closeNav() {

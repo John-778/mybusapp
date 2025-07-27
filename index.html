@@ -36,8 +36,8 @@
     .bus-info {
       background-color: #3d4fff;
       margin: 16px;
-      padding: 16px;
-      border-radius: 20px;
+      padding: 18px;
+      border-radius: 10px;
       text-align: center;
       color: white;
     }
@@ -49,7 +49,7 @@
     }
 
     .bus-info .arrow {
-      font-size: 22px;
+      font-size: 30px;
       margin: 4px 0;
     }
 
@@ -72,10 +72,13 @@
     }
 
     .qr-container img {
-      max-width: 130%;
-      max-height: 100%;
-      border-radius: 12px;
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  }
+
 
     .section-content {
       width: 100%;
@@ -147,7 +150,7 @@
 
   <!-- QR Section -->
   <div id="qrSection" class="fixed-box qr-container">
-    <img src="qrimg.png" alt="QR Code Placeholder" />
+    <img src="QR.png" alt="QR Code Placeholder" />
   </div>
 
   <!-- Details Section (same size as QR section) -->

@@ -2,12 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>TCS Digital Bus Pass</title>
   <style>
+    :root {
+      /* For iPhone safe area insets */
+      padding-top: env(safe-area-inset-top);
+      padding-bottom: env(safe-area-inset-bottom);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+
     * {
       box-sizing: border-box;
     }
+
     body {
       margin: 0;
       background-color: #000;
@@ -15,22 +24,23 @@
       color: #fff;
       position: relative;
       min-height: 100vh;
+      padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     }
 
     .header {
       background-color: #6200ea;
       color: white;
-      padding: 15px;
+      padding: 15px env(safe-area-inset-right) 15px env(safe-area-inset-left);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .header .title {
-      text-align: center;
       flex-grow: 1;
       font-weight: bold;
       font-size: 18px;
+      text-align: center;
     }
 
     .bus-info {
@@ -57,36 +67,33 @@
       font-size: 15px;
       margin-top: 10px;
       font-weight: 400;
-      font-family: Arial, sans-serif;
     }
 
     .fixed-box {
-  position: relative; /* Required for positioning pseudo-elements */
-  width: calc(100% - 32px);
-  height: 260px;
-  margin: 16px;
-  padding: 16px;
-  background-color: #111;
-  border-radius: 10px;
-  border: 1px solid #444;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+      position: relative;
+      width: calc(100% - 32px);
+      height: 260px;
+      margin: 16px;
+      padding: 16px;
+      background-color: #111;
+      border-radius: 10px;
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-/* Green notch on top-left */
-.fixed-box::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  border-left: 30px solid rgb(31, 255, 31);  /* notch width and color */
-  border-bottom: 30px solid transparent; /* notch height */
-  border-top-left-radius: 10px;
-}
-
+    .fixed-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 0;
+      border-left: 30px solid rgb(31, 255, 31);
+      border-bottom: 30px solid transparent;
+      border-top-left-radius: 10px;
+    }
 
     .qr-container img {
       width: 100%;
@@ -147,7 +154,6 @@
       opacity: 2;
     }
 
-    /* Sidenav styles */
     .sidenav {
       height: 100%;
       width: 0;
@@ -159,6 +165,7 @@
       overflow-x: hidden;
       transition: 0.3s;
       padding-top: 60px;
+      padding-left: env(safe-area-inset-left);
     }
 
     .sidenav a {
@@ -174,10 +181,6 @@
     .sidenav a:hover {
       background-color: #333;
       color: #fff;
-    }
-
-    .sidenav a i {
-      margin-right: 12px;
     }
 
     .sidenav .closebtn {
@@ -205,16 +208,13 @@
 <body>
   <!-- Sidenav -->
   <div id="mySidenav" class="sidenav">
-  <span class="closebtn" onclick="closeNav()">×</span>
-  <a href="#"><span class="icon">🏠&nbsp;&nbsp;</span>Home</a>
-  <a href="#"><span class="icon">🚍&nbsp;&nbsp;</span>Apply Bus Pass</a>
-  <a href="#"><span class="icon">📝&nbsp;&nbsp;</span>Request Status</a>
-  <a href="#"><span class="icon">⚙️&nbsp;&nbsp;</span>Back to Home Page</a>
-  <a href="#"><span class="icon">🔓&nbsp;&nbsp;</span>Logout</a>
-</div>
-
-
-
+    <span class="closebtn" onclick="closeNav()">×</span>
+    <a href="#"><span class="icon">🏠</span>&nbsp;Home</a>
+    <a href="#"><span class="icon">🚍</span>&nbsp;Apply Bus Pass</a>
+    <a href="#"><span class="icon">📝</span>&nbsp;Request Status</a>
+    <a href="#"><span class="icon">⚙️</span>&nbsp;Back to Home Page</a>
+    <a href="#"><span class="icon">🔓</span>&nbsp;Logout</a>
+  </div>
 
   <!-- Header -->
   <div class="header">
@@ -286,7 +286,7 @@
     <img src="tcsw.png" alt="TCS Footer Logo">
   </div>
 
-  <!-- JS -->
+  <!-- JavaScript -->
   <script>
     function toggleView() {
       const qr = document.getElementById("qrSection");
@@ -305,7 +305,7 @@
     }
 
     function openNav() {
-      document.getElementById("mySidenav").style.width = "300px";
+      document.getElementById("mySidenav").style.width = "280px";
     }
 
     function closeNav() {
